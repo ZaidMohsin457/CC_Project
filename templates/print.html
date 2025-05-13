@@ -1,0 +1,64 @@
+<body
+  style="font-family: 'Courier New', Courier, monospace; margin: 0; padding: 0"
+>
+  <div
+    style="
+      max-width: 400px;
+      margin: 20px auto;
+      background-;
+      border: 1px solid #ccc;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <h1 style="text-align: center; font-size: 24px; color: #333; margin: 0">
+      Ghulam Ishaq Khan Institute of Engineering Sciences and Technology
+    </h1>
+    <h3
+      style="text-align: center; font-size: 18px; color: #333; margin: 10px 0"
+    >
+      GIKI Bus Reservation System
+    </h3>
+    <div style="background-; ; padding: 8px">
+      <h4 style="font-size: 16px; margin: 10px 0; ">Ticket Info:</h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        Ticket Id: {{ticket.pk}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        From Destination: {{ticket.dest_pk.from_destination}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        To Destination: {{ticket.dest_pk.to_destination}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        Bus Location: {{ticket.dest_pk.bus_location}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        Date: {{ticket.dest_pk.date}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        Time: {{ticket.dest_pk.time}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        Driver Name: {{ticket.dest_pk.bus_driver.driver_name}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; ">
+        Driver Number: {{ticket.dest_pk.bus_driver.driver_number}}
+      </h4>
+    </div>
+    <div style="background-color: #f0f0f0; padding: 8px; margin-top: 10px">
+      <h4 style="font-size: 16px; margin: 10px 0; color: #333">
+        User Details:
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; color: #333">
+        Name: {{User_set.first_name}} {{User_set.last_name}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; color: #333">
+        User Reg No: {{User_set.username}}
+      </h4>
+      <h4 style="font-size: 16px; margin: 10px 0; color: #333">
+        Email: {{User_set.email}}
+      </h4>
+    </div>
+  </div>
+</body>

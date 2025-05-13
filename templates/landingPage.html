@@ -1,0 +1,610 @@
+{%load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8" />
+    <title>Raah-e-Safar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+    name="description"
+    content="Web site created using create-react-app"
+    />
+    <img
+    alt="Logo"
+    src="https://appproject.dhiwise.com/dhiwise-logo.png"
+    style="width: 0px; height: 0px; display: none"
+    />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/index.css'%}"
+    />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/main.css'%}"
+    />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/font.css'%}"
+    />
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/tailwind.css'%}"
+    />
+    <link
+    rel="stylesheet"
+    href="{% static 'css/dist/styles.css' %}"
+    />
+
+  </head>
+  <body>
+    <!-- container  -->
+    <div class="flex w-full flex-col items-center bg-gray-50 px-3 pt-3 md:pb-5">
+      <!-- header  -->
+      <header class="container-sm w-[97%] md:p-5 md:w-full">
+            
+          {% if user.is_authenticated %}
+        <div
+          class="flex w-[100%] !items-center justify-between align-i md:w-full md:justify-end"
+        >
+        <!-- updated nav bar  -->
+        <div class="md:hidden">
+          <ul class="mb-[29px] flex gap-[37px] md:hidden">
+            <li>
+              <a href="/">
+                <p class="size-xs text ui">Home</p> 
+              </a>
+            </li>
+            <li>
+              <a href="/search">
+                <p class="size-xs text ui">Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="/tickets">
+                <p class="size-xs text ui">My Ticket</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+          <img
+            src="{%static 'public/images/img_group_29.svg'%}"
+            alt="group 29"
+            class="h-[100px] w-[37%] pb-10"
+          />
+
+          <div class="flex gap-7 md:w-full justify-end">
+          <a
+              class="square fill size-md mb-7 button ui min-w-[100px] self-end bg-light_blue-900 !text-white-A700 sm:!size-sm"
+              href="/account/"
+              >Account</a>
+
+          <a
+              class="square fill size-md mb-7 button ui min-w-[100px] self-end bg-light_blue-900 !text-white-A700 sm:size-sm"
+              href="/logout"
+              >Log Out</a
+            >
+          </div>      
+        </div>
+          {% else %}
+        <div
+          class="flex w-[100%] !items-center justify-between align-i md:w-full md:justify-end"
+        >
+          
+
+          <img
+            src="{%static 'public/images/img_group_29.svg'%}"
+            alt="group 29"
+            class="h-[100px] w-[37%] pb-10"
+          />
+
+          <div class="flex gap-7 md:w-full justify-end">
+          <a
+            class="square fill size-md mb-7 button ui min-w-[100px] self-end bg-light_blue-900 !text-white-A700 sm:!size-sm"
+            href="/login"
+            >Sign In</a
+          >
+
+          <a
+            class="square fill size-md mb-7 button ui min-w-[100px] self-end bg-light_blue-900 !text-white-A700 sm:size-sm"
+            href="/signup"
+            >Sign Up</a
+          >
+          </div>      
+        </div>
+          {%endif%}
+      </header>
+      {% if messages %}
+      {% for message in messages %}  
+        <div class="bg-red-500 text-white px-4 py-2" role="alert">{{message}}
+        </div>{% endfor %}
+        {% endif %}
+      {% if user.is_authenticated %}
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 px-4 rounded-lg shadow-md">
+    <p class="text-lg font-semibold">Welcome, {{ user.first_name }}!</p> 
+</div>
+ {% endif %}
+      {%block body%}
+
+      <!-- hero section  -->
+      <div
+        class="container-sm w-[97%] mt-[19px] flex items-center justify-between gap-2.5 md:flex-col md:justify-center md:p-5"
+      >
+        <div
+          class="flex w-[50%] flex-col items-start gap-[30px] md:w-full md:justify-center md:gap-10 sm:gap-8"
+        >
+          <h1
+            class="size-xl heading ui w-full leading-[86px] !text-light_blue-900 md:text-center"
+          >
+            Find Your Bus Seat with Ease
+          </h1>
+          <p class="size-md text ui">
+            Book your bus seat hassle-free and enjoy a comfortable journey.
+          </p>
+          <div
+            class="ml-[5px] mt-10 flex w-[63%] justify-between gap-5 md:ml-0 md:w-full md:mt-0"
+          >
+            <a
+              href="/search/"
+              class="square fill size-lg button ui min-w-[179px] border border-solid border-light_blue-900 bg-light_blue-900 !text-white-A700 sm:px-5 md:size-md md:min-w-0 sm:size-md sm:min-w-0"
+            >
+              Search
+            </a>
+            <a href = "#learn"
+              class="square fill size-lg button ui min-w-[179px] border border-solid border-black-900_01 sm:px-5 md:size-md md:min-w-0 sm:size-md sm:min-w-0"
+            >
+              Learn More
+          </a>
+          </div>
+        </div>
+
+        <img
+          src="{%static 'public/images/93335033.cms'%}"
+          alt="rectangle 3"
+          class="h-[477px] w-[50%] rounded-[30px] object-cover md:w-full"
+        />
+      </div>
+
+      <!-- banner  -->
+      <div
+        class="container-sm w-[97%] flex items-start justify-between gap-[26px] md:flex-col-reverse md:p-5"
+      >
+        <div
+          class="container-sm mt-[120px] md:mt-[86px] sm:mt-[48px] flex h-[460px] items-center rounded-[30px] bg-[url(../public/images/bus-banner.jpg)] bg-cover bg-no-repeat pb-[135px] pl-[66px] pr-14 pt-[104px] md:h-auto md:p-5"
+        >
+          <div class="mt-[93px] flex w-[51%] flex-col items-center md:w-full">
+            <p class="size-s text ui self-start md:ml-0">Convenient</p>
+            <h2
+              class="size-md heading ui mt-6 w-full leading-[58px] !text-light_blue-900"
+            >
+              Experience the Ease of Bus Reservation
+            </h2>
+            <div class="mt-[11px] flex w-[93%] flex-col gap-[26px] md:w-full">
+              <p class="size-xs text ui">
+                Rah-e-safar offers a convenient, safe, and affordable way for
+                students to book their bus seats. With just a few clicks, you
+                can reserve your seat and avoid the hassle of waiting in long
+                queues.
+              </p>
+              <div
+                class="flex w-[45%] items-start justify-between gap-5 md:w-full"
+              >
+                <button
+                  class="square fill size-lg button ui min-w-[179px] border border-solid border-light_blue-900 sm:px-5"
+                >
+                  Learn More
+                </button>
+                <a href="/signup/" class="mt-[25px]">
+                  <p class="square fill min-w-[130px] text ui">Sign Up</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA  -->
+
+      <div id="learn"
+        class="mt-[120px] flex flex-col gap-[70px] md:gap-[52px] sm:gap-[35px]"
+      >
+        <div
+          class="container-sm w-[97%] flex justify-between gap-5 md:flex-col md:p-5"
+        >
+          <div
+            class="flex w-[32%] flex-col gap-[18px] self-start md:ml-0 md:w-full"
+          >
+            <img
+              src="{%static 'public/images/img_rectangle_5.png'%}"
+              alt="rectangle 5"
+              class="h-[303px] w-[100%] rounded-[30px] object-cover md:w-full"
+            />
+            <p
+              class="size-md text ui w-full text-center !text-light_blue-900 md:w-full"
+            >
+              Step 1: Choose Your Destination
+            </p>
+            <p class="size-xs text ui text-center">
+              Select your desired destination from our wide range of available
+              routes.
+            </p>
+          </div>
+
+          <div
+            class="flex w-[32%] flex-col gap-[18px] self-start md:ml-0 md:w-full"
+          >
+            <img
+              src="{% static 'public/images/img_rectangle_7.png'%}"
+              alt="rectangle 7"
+              class="h-[303px] w-[100%] rounded-[30px] object-cover md:w-full"
+            />
+            <p class="size-md text ui w-full text-center !text-light_blue-900">
+              Step 2: Select Your Bus
+            </p>
+            <p class="size-xs text ui text-center">
+              Select from different buses
+            </p>
+          </div>
+
+          <div class="flex flex-1 flex-col gap-5 md:ml-0 md:self-stretch">
+            <img
+              src="{%static 'public/images/img_rectangle_6.png'%}"
+              alt="rectangle 6"
+              class="h-[303px] w-[100%] rounded-[30px] object-cover md:w-full"
+            />
+            <p
+              class="size-md text ui w-[92%] text-center !text-light_blue-900 md:w-full"
+            >
+              Step 3: Reserve your seat
+            </p>
+            <p class="size-xs text ui w-full text-center">
+              Secure your bus seat by completing the reservation process
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- testimonials -->
+      <div
+        class="container-sm mt-[86px] flex w-[97%] flex-col items-start md:w-full"
+      >
+        <h6 class="size-lg heading ui !text-light_blue-900">
+          What Students Say
+        </h6>
+        <p class="size-xs text ui mt-2.5">
+          Read testimonials from students who have used our service
+        </p>
+        <div class="mt-[86px] flex gap-[25px] self-stretch md:flex-col">
+          <div
+            class="flex w-full rounded-[30px] border border-solid border-black-900_01 px-[25px] pb-11 pt-[27px] md:pb-5 sm:p-5"
+          >
+            <div class="flex w-[68%] flex-col gap-[31px] md:w-full">
+              <div>
+                <ul class="ratingbar ui flex text-3xl">
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                </ul>
+              </div>
+              <p class="size-xs text ui">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <div
+                class="flex w-[75%] items-center justify-between gap-5 md:w-full"
+              >
+                <div
+                  class="h-[50px] w-[29%] rounded-[25px] bg-gray-500_01"
+                ></div>
+                <div class="flex flex-col items-start">
+                  <h6 class="size-xs heading ui">Ali</h6>
+                  <p class="size-xs text ui">Student</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex w-full rounded-[30px] border border-solid border-black-900_01 px-[25px] pb-11 pt-[27px] md:pb-5 sm:p-5"
+          >
+            <div class="flex w-[68%] flex-col gap-[31px] md:w-full">
+              <div>
+                <ul class="ratingbar ui flex text-3xl">
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                </ul>
+              </div>
+
+              <p class="size-xs text ui">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <div
+                class="flex w-[75%] items-center justify-between gap-5 md:w-full"
+              >
+                <div
+                  class="h-[50px] w-[29%] rounded-[25px] bg-gray-500_01"
+                ></div>
+                <div class="flex flex-col items-start">
+                  <h6 class="size-xs heading ui">Ali</h6>
+                  <p class="size-xs text ui">Student</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex w-full rounded-[30px] border border-solid border-black-900_01 px-[25px] pb-11 pt-[27px] md:pb-5 sm:p-5"
+          >
+            <div class="flex w-[68%] flex-col gap-[31px] md:w-full">
+              <div>
+                <ul class="ratingbar ui flex text-3xl">
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                  <li>★</li>
+                </ul>
+              </div>
+              <p class="size-xs text ui">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <div
+                class="flex w-[75%] items-center justify-between gap-5 md:w-full"
+              >
+                <div
+                  class="h-[50px] w-[29%] rounded-[25px] bg-gray-500_01"
+                ></div>
+                <div class="flex flex-col items-start">
+                  <h6 class="size-xs heading ui">Ali</h6>
+                  <p class="size-xs text ui">Student</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- questions  -->
+      <div
+        class="container-sm w-[97%] mt-[120px] flex flex-col items-start md:p-5"
+      >
+        <div class="flex flex-col items-start self-stretch">
+          <h1 class="size-lg heading ui !text-light_blue-900">
+            Frequently Asked Questions
+          </h1>
+
+          <div
+            class="mt-[18px] flex flex-col items-start self-stretch sm:gap-8"
+          >
+            <p class="size-xs text ui">
+              Find answers to common questions about the bus reservation
+              process, schedules, and policies.
+            </p>
+
+            <div class="h-[0.5px] w-[100%] mt[86px] bg-gray-700"></div>
+
+            <div
+              class="mt-[25px] mb-[25px] flex w-[97%] items-start justify-between gap-5 md:w-full md:flex-col"
+            >
+              <h6 class="size-xs heading ui mt-1.5">How to book a seat?</h6>
+              <p class="size-xs text ui w-[65%] md:w-full">
+                To book a seat, simply visit our website, select your desired
+                bus route and date, choose an available seat, and proceed to
+                payment.
+              </p>
+            </div>
+
+            <div class="h-[0.5px] w-[100%] bg-gray-700"></div>
+
+            <div
+              class="mt-[25px] mb-[25px] flex w-[97%] items-start justify-between gap-5 md:w-full md:flex-col"
+            >
+              <h6 class="size-xs heading ui mt-1.5">
+                What are the bus schedules?
+              </h6>
+              <p class="size-xs text ui w-[65%] md:w-full">
+                Bus schedules vary depending on the route. You can check the
+                available schedules on our website.
+              </p>
+            </div>
+
+            <div class="h-[0.5px] w-[100%] bg-gray-700"></div>
+
+            <div
+              class="mt-[25px] mb-[25px] flex w-[97%] items-start justify-between gap-5 md:w-full md:flex-col"
+            >
+              <h6 class="size-xs heading ui mt-1.5">
+                How can I modify my booking?
+              </h6>
+              <p class="size-xs text ui w-[65%] md:w-full">
+                To modify your booking, please contact our customer support team
+                at least 48 hours before the scheduled departure time.
+              </p>
+            </div>
+
+            <div class="h-[0.5px] w-[100%] bg-gray-700"></div>
+          </div>
+        </div>
+
+        <div class="container-sm">
+          <h1 class="size-md heading ui mt-[129px] !text-light_blue-900">
+            Still have questions?
+          </h1>
+          <p class="size-xs text ui mt-[18px]">
+            Contact Us for further assistance.
+          </p>
+          <button
+            class="square fill size-lg button ui mt-[40px] min-w-[179px] border border-solid border-black-900_01 sm:px-5"
+          >
+            Contact Us
+          </button>
+        </div>
+      </div>
+
+      <!-- team  -->
+      <div
+        class="container-sm w-[97%] flex flex-col gap-36 md:gap-[108px] sm:gap-[72px] mt-[131px]"
+      >
+        <div
+          class="flex flex-col items-start md:justify-center md:items-center"
+        >
+          <h2 class="size-lg heading ui mt-[11px] !text-light_blue-900">
+            Meet Our Team
+          </h2>
+
+          <div
+            class="ml-[7px] mt-[63px] flex justify-center gap-[79px] self-stretch md:ml-0 md:flex-col"
+          >
+            <div
+              class="flex w-[19%] flex-col items-start md:w-full md:justify-center md:items-center"
+            >
+              <img
+                src="{% static 'public/images/Zaid.jpg'%}"
+                alt="11053969 x logo"
+                class="h-[400px] w-[500px] border rounded-[100px] md:h-[150px] md:w-[150px]"
+              />
+              <h3 class="size-xs heading ui mt-[27px]">Muhammad Zaid Mohsin</h3>
+              <p class="size-xs text ui">Backend Engineer</p>
+              <p class="size-xs text ui mt-3">
+                CS @ GIKI'26
+              </p>
+
+              <!-- icons  -->
+              <div
+                class="mt-[21px] flex w-[70%] items-center justify-between gap-5 md:justify-center md:items-center"
+              >
+                <img
+                  src="{%static 'public/images/104493_linkedin_icon.svg'%}"
+                  alt="104493 linkedin icon"
+                  class="h-[30px] w-[30px]"
+                />
+
+                <img
+                  src="{% static 'public/images/img_11053969_x_logo.svg'%}"
+                  alt="11053969 x logo"
+                  class="h-[25px] w-[25px] mt-[2px]"
+                />
+                <img
+                  src="{% static 'public/images/img_211904_social_github_icon.svg'%}"
+                  alt="211904 social github icon"
+                  class="h-[30px] w-[30px]"
+                />
+              </div>
+            </div>
+
+            <div
+              class="flex w-[19%] flex-col items-start md:w-full md:justify-center md:items-center"
+            >
+              <img
+                src="{%static 'public/images/haider.jpg'%}"
+                alt="11053969 x logo"
+                class="h-[160px] w-[1000px] border rounded-[100px] md:h-[150px] md:w-[150px]"
+              />
+              <h3 class="size-xs heading ui mt-[27px]">Haider Ali Khan</h3>
+              <p class="size-xs text ui">Front-End Developer</p>
+              <p class="size-xs text ui mt-3">
+                CS @ GIKI'26
+              </p>
+
+              <!-- icons  -->
+              <div
+                class="mt-[21px] flex w-[70%] items-center justify-between gap-5 md:justify-center md:items-center"
+              >
+                <img
+                  src="{% static 'public/images/104493_linkedin_icon.svg'%}"
+                  alt="104493 linkedin icon"
+                  class="h-[30px] w-[30px]"
+                />
+
+                <img
+                  src="{%static 'public/images/img_11053969_x_logo.svg'%}"
+                  alt="11053969 x logo"
+                  class="h-[25px] w-[25px] mt-[2px]"
+                />
+                <img
+                  src="{%static 'public/images/img_211904_social_github_icon.svg'%}"
+                  alt="211904 social github icon"
+                  class="h-[30px] w-[30px]"
+                />
+              </div>
+            </div>
+
+            <div
+              class="flex w-[19%] flex-col items-start md:w-full md:justify-center md:items-center"
+            >
+              <img
+                src="{% static 'public/images/Ammar.jpg'%}"
+                alt="11053969 x logo"
+                class="h-[160px] w-[1000px] border rounded-[100px] md:h-[150px] md:w-[150px]"
+              />
+              <h3 class="size-xs heading ui mt-[27px]">Ammar Ahmed</h3>
+              <p class="size-xs text ui">Deployment Engineer</p>
+              <p class="size-xs text ui mt-3">
+                DS @ GIKI'26
+              </p>
+            <!-- icons  -->
+            <div
+              class="mt-[21px] flex w-[70%] items-center justify-between gap-5 md:justify-center md:items-center"
+            >
+              <img
+                src="{%static 'public/images/104493_linkedin_icon.svg'%}"
+                alt="104493 linkedin icon"
+                class="h-[30px] w-[30px]"
+              />
+
+              <img
+                src="{%static 'public/images/img_11053969_x_logo.svg'%}"
+                alt="11053969 x logo"
+                class="h-[25px] w-[25px] mt-[2px]"
+              />
+              <img
+                src="{%static 'public/images/img_211904_social_github_icon.svg'%}"
+                alt="211904 social github icon"
+                class="h-[30px] w-[30px]"
+              />
+            </div>
+          </div>
+        </div>
+
+          {%endblock%}
+      <!-- footer  -->
+      <footer class="container-sm mt-7 w-[97%] md:w-full md:p-5">
+        <div class="flex flex-col gap-3.5">
+          <div class="h-[0.5px] bg-gray-700"></div>
+
+          <div class="flex justify-between">
+            <div>
+              <p class="size-xs text-gray-800 ui">
+                © 2024 Rah-e-safar. All Rights Reserved.
+              </p>
+            </div>
+
+            <div class="flex justify-between">
+              <a href="#" class="ml-[26px] self-end">
+                <p class="size-xs ui text-gray-800">Privacy Policy</p>
+              </a>
+
+              <a href="#" class="ml-[26px] self-start">
+                <p class="size-xs ui text-gray-800">Terms and Conditions</p>
+              </a>
+              <a href="#" class="ml-[26px] self-end">
+                <p class="size-xs ui text-gray-800">Cookie Policy</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

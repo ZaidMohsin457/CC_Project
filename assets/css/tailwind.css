@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25+Charted&display=swap');
+
+
+/* [type="text"],
+input:where(:not([type])),
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+  appearance: none;
+  background-color: transparent;
+  border-color: unset;
+  border-width: 0;
+  border-radius: unset;
+  padding: unset;
+  font-size: unset;
+  line-height: unset;
+} */
+
+/* Override default focus colors for tailwindcss-forms https://github.com/tailwindlabs/tailwindcss-forms */
+/* [type="text"]:focus,
+[type="email"]:focus,
+[type="url"]:focus,
+[type="password"]:focus,
+[type="number"]:focus,
+[type="date"]:focus,
+[type="search"]:focus,
+[type="checkbox"]:focus,
+[type="radio"]:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+  --tw-ring-color: transparent;
+  border-color: transparent;
+} */
+
+
+@layer components {
+
+
+  /*-------------------------------------
+  Button CSS
+--------------------------------------*/
+  .ui.button.square {
+    @apply rounded-md;
+  }
+
+  .ui.button.size-xs {
+    @apply h-[45px] w-[30px];
+  }
+
+  .ui.button.size-lg {
+    @apply h-[66px] px-[35px] text-lg;
+  }
+
+  .ui.button.size-lg-md{
+    @apply h-[66px] px-[25px] text-lg;
+  }
+
+  .ui.button.size-sm {
+    @apply h-[49px] px-[19px] text-base;
+  }
+
+  .ui.button.size-md {
+    @apply h-[57px] px-8 text-lg;
+  }
+
+  .ui.button.fill.light_blue_900 {
+    @apply bg-light_blue-900 text-black-900_01;
+  }
+
+  .ui.button.fill.white_a700 {
+    @apply bg-white-A700 text-black-900;
+  }
+
+  .ui.button.bordered.white_a700 {
+    @apply border-white-A700 border border-solid text-light_blue-900;
+  }
+
+  .ui.button {
+    @apply flex flex-row items-center justify-center text-center cursor-pointer;
+  }
+
+  /*-------------------------------------
+  Text CSS
+--------------------------------------*/
+  .ui.text.size-xs {
+    @apply text-base font-normal;
+  }
+
+  .ui.text.size-lg {
+    @apply text-[40px] font-normal md:text-[38px] sm:text-4xl;
+  }
+
+  .ui.text.size-s {
+    @apply text-xl font-normal;
+  }
+
+  .ui.text.size-md {
+    @apply text-2xl font-normal md:text-[22px];
+  }
+
+  .ui.text {
+    @apply text-black-900_01;
+  }
+
+  /*-------------------------------------
+  Heading CSS
+--------------------------------------*/
+   .ui.heading.size-xl {
+    @apply text-5xl font-bold md:text-3xl;
+  }
+
+  .ui.heading.size-s {
+    @apply text-[32px] font-bold md:text-3xl sm:text-[28px];
+  }
+
+  .ui.heading.size-md {
+    @apply text-5xl font-bold md:text-[44px] sm:text-[38px];
+  }
+
+  .ui.heading.size-xs {
+    @apply text-lg font-bold;
+  }
+
+  .ui.heading.size-lg {
+    @apply text-[64px] font-bold md:text-5xl;
+  }
+
+  .ui.heading {
+    @apply text-black-900_01;
+  } 
+
+  /*-------------------------------------
+  Container CSS
+--------------------------------------*/
+  .container-xs {
+    @apply w-full mx-auto max-w-[1282px];
+  }
+
+  .container-sm {
+    @apply w-full mx-auto max-w-[1286px];
+  }
+}  
+
