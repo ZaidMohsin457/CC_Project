@@ -1,0 +1,182 @@
+{% extends "landingPage.html" %} {% load static%} {%block body%}
+
+<body>
+  <!-- Container -->
+  <div
+    class="flex flex-col min-h-screen w-full h-dvh items-center justify-center text-gray-600 bg-gray-50 mt-4 mb-4"
+  >
+    <!-- Register -->
+
+    <div
+      class="flex flex-col rounded-lg border border-gray-400 bg-white shadow-lg px-4"
+    >
+      <div class="flex-auto justify-center p-6">
+        <!-- Logo -->
+        <div class="flex justify-center">
+          <img
+            src="{%static 'public/images/img_group_29.svg'%}"
+            alt="group 29"
+            class="h-[100px] w-[37%] pb-10"
+          />
+        </div>
+        <!-- /Logo -->
+
+        <div class="flex justify-center">
+        <h4 class="mb-4 font-medium text-gray-700 xl:text-xl">
+          Welcome to Your Raah-e-Safar Account!
+        </h4>
+        </div>
+        {% if messages %}
+        <div class="bg-red-500 text-white px-4 py-2" role="alert">
+          {% for message in messages %} {{message}} {% endfor %}
+        </div>
+        {% endif %}
+        <form id="" class="mb-4" action="" method="POST">
+          {% csrf_token %}
+          <div class="flex items-center justify-center gap-10 sm:block">
+            <div class="mb-4">
+              <label
+                for="firstname"
+                class="inline-block text-xs font-medium uppercase text-gray-700 mr-2 mb-2"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                id=""
+                name="firstname"
+                placeholder="Enter your first name"
+                autofocus=""
+                value="{{account.first_name}}"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="lastname"
+                class="mb-2 ml-2 mr-2 inline-block text-xs font-medium uppercase text-gray-700"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                id=""
+                name="lastname"
+                placeholder="Enter your last name"
+                autofocus=""
+                value="{{account.last_name}}"
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="email"
+              class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+              >Email</label
+            >
+            <input
+              type="email"
+              class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+              id="email"
+              name="email-username"
+              placeholder="Enter your email"
+              autofocus=""
+              disabled
+              value="{{account.email}}"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+              >Registration Number</label
+            >
+            <input
+              type="number"
+              class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+              id=""
+              name="registration"
+              placeholder="Enter your registration number"
+              autofocus=""
+              disabled
+              value="{{account.username}}"
+            />
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between">
+              <label
+                class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                for="oldpassword"
+                >Old Password</label
+              >
+            </div>
+            <div class="relative flex w-full flex-wrap items-stretch">
+              <input
+                type="password"
+                id="oldpassword"
+                class="relative block flex-auto cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                name="oldpassword"
+                placeholder="············"
+              />
+            </div>
+          <div class="mb-4">
+            <div class="flex justify-between">
+              <label
+                class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                for="password"
+                >Password</label
+              >
+            </div>
+            <div class="relative flex w-full flex-wrap items-stretch">
+              <input
+                type="password"
+                id="password"
+                class="relative block flex-auto cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                name="password"
+                placeholder="············"
+              />
+            </div>
+            
+          </div>
+
+          <div class="mb-4">
+            <div class="block">
+              <input
+                class="mt-1 mr-2 h-5 w-5 appearance-none rounded border border-gray-300 bg-contain bg-no-repeat align-top text-black shadow checked:bg-light_blue-900 focus:border-light_blue-900 focus:shadow"
+                type="checkbox"
+                id="remember-me"
+                style="
+                  background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\'%3e%3cpath fill=\'none\' stroke=\'%23fff\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M6 10l3 3l6-6\'/%3e%3c/svg%3e');
+                "
+                checked
+              />
+              <label class="inline-block mt-1" for="remember-me">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <div class="mb-4 flex !gap-2 sm:block sm:gap-2">
+            <button
+              class="grid mb-4 w-full cursor-pointer select-none rounded-md border border-light_blue-900 bg-light_blue-900 py-2 px-5 text-center align-middle text-sm text-white-A700 shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none"
+              type="submit"
+            >
+            <a href="/delete_account/" 
+            >Delete Account</a
+          >
+            </button>
+
+            <button
+              class="grid mb-4 w-full cursor-pointer select-none rounded-md border border-light_blue-900 bg-light_blue-900 py-2 px-5 text-center align-middle text-sm text-white-A700 shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none"
+              type="submit"
+            >
+              Update Account
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+{%endblock%}

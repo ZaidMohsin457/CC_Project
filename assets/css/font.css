@@ -1,0 +1,16 @@
+
+
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("../public/fonts/BalsamiqSansRegular.ttf");
+  font-family: "Balsamiq Sans";
+  font-weight: 400;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("../public/fonts/BalsamiqSansBold.ttf");
+  font-family: "Balsamiq Sans";
+  font-weight: 700;
+}
